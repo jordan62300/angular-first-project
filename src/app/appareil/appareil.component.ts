@@ -19,8 +19,12 @@ export class AppareilComponent implements OnInit {
     return this.appareilStatus;
   }
 
-  getBtn() {
-   return  "<button class='btn btn-success' [attr.disabled]='!isAuth'>Tout allumer</button>";
+  getColor() {
+    if(this.appareilStatus == 'allumé') {
+      return 'green';
+    }else if(this.appareilStatus == 'éteint') {
+      return 'red';
+    }
   }
 
 }
