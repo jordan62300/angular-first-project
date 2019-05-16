@@ -7,6 +7,7 @@
     <div class="row">
       <div class="col-xs-12">
         <h2>Mes appareils</h2>
+        <p>Derniere mise a jour : {{ lastUpdate | async | date: 'd/M/yy' | uppercase}} </p>
         <ul class="list-group">
          <app-appareil *ngFor="let appareil of appareils"
                        [appareilName]="appareil.name"
