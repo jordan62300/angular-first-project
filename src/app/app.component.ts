@@ -6,12 +6,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Salut les gens';
-  isAuth = false;
+ 
+  isAuth: boolean = false;
 
-  appareilOne = 'Machine à laver';
-  appareilTwo = 'Frigo';
-  appareilThree = 'Ordinateur';
+  appareils = [
+    {
+    name: 'Machine a laver',
+    status: 'éteint'
+    },
+    {
+    name: 'Frigo',
+    status: 'allumé'
+    },
+    {
+    name: 'Ordinateur',
+    status: 'éteint'
+    }
+  ]
+
   
   constructor() {
     setTimeout( () => {
