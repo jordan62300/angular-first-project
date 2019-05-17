@@ -19,6 +19,7 @@
         (click)="onAllumer()"
         *ngIf="isAuth === true"
         >Tout allumer</button>
+        <button class="btn btn-danger" (click)="onEteindre()" *ngIf="isAuth === true">Tout eteindre</button>
         </form>
       </div>
     </div>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { AppareilService } from './services/appareil.Service';
 
 @Component({
   selector: 'app-root',
@@ -18,31 +19,31 @@ export class AppComponent {
     );
   });
 
-  appareils = [
-    {
-    name: 'Machine a laver',
-    status: 'éteint'
-    },
-    {
-    name: 'Frigo',
-    status: 'allumé'
-    },
-    {
-    name: 'Ordinateur',
-    status: 'éteint'
-    }
-  ]
+  appareils: any[]
 
   
-  constructor() {
+  constructor(private appareilService: AppareilService) {
     setTimeout( () => {
       this.isAuth = true;
     },4000
     )
-
+    
     
   }
-      onAllumer() {
-        console.log("On allume tout");
-      }
+
+  ngOnInit() {
+    this.appareils = this.appareilService.appareils
+  }
+
+  onAllumer() {
+    this.appareilService.switchOnAll();
+    console.log("On allume tout");
+  }
+  onEteindre() {
+    if(confirm('Etes vous sur de vouloir éteindre tout vos appareils ?')) {
+    this.appareilService.switchOffAll();
+    } else {
+      return null;
+    }
+  }
 }
