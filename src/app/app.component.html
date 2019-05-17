@@ -9,9 +9,11 @@
         <h2>Mes appareils</h2>
         <p>Derniere mise a jour : {{ lastUpdate | async | date: 'd/M/yy' | uppercase}} </p>
         <ul class="list-group">
-         <app-appareil *ngFor="let appareil of appareils"
+         <app-appareil *ngFor="let appareil of appareils;let i = index"
                        [appareilName]="appareil.name"
-                       [appareilStatus]="appareil.status">
+                       [appareilStatus]="appareil.status"
+                       [index]="i">
+                       
         </app-appareil>
         </ul>
         <form action="">
