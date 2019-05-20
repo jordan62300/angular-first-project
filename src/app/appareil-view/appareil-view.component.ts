@@ -10,6 +10,7 @@ export class AppareilViewComponent implements OnInit {
 
   isAuth: boolean = false;
   appareils: any[]
+  id: number;
 
   lastUpdate = new Promise((resolve, reject)=> {
     const date = new Date();
