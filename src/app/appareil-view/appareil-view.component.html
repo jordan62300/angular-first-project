@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    
+  </h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Mes appareils</h2>
+        <p>Derniere mise a jour : {{ lastUpdate | async | date: 'd/M/yy' | uppercase}} </p>
+        <ul class="list-group">
+         <app-appareil *ngFor="let appareil of appareils;let i = index"
+                       [appareilName]="appareil.name"
+                       [appareilStatus]="appareil.status"
+                       [index]="i">
+                       
+        </app-appareil>
+        </ul>
+        <form action="">
+        <button class="btn btn-success" 
+        (click)="onAllumer()"
+        *ngIf="isAuth === true"
+        >Tout allumer</button>
+        <button class="btn btn-danger" (click)="onEteindre()" *ngIf="isAuth === true">Tout eteindre</button>
+        </form>
+      </div>
+    </div>
+  </div>
