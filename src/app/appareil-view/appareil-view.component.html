@@ -20,9 +20,9 @@
         <form action="">
         <button class="btn btn-success" 
         (click)="onAllumer()"
-        *ngIf="isAuth === true"
+        *ngIf="isAuth"
         >Tout allumer</button>
-        <button class="btn btn-danger" (click)="onEteindre()" *ngIf="isAuth === true">Tout eteindre</button>
+        <button class="btn btn-danger" (click)="onEteindre()" *ngIf="isAuth">Tout eteindre</button>
         </form>
       </div>
     </div>
