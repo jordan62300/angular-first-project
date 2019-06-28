@@ -1,6 +1,6 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,OnDestroy } from '@angular/core';
 import { AppareilService } from './services/appareil.Service';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { interval } from 'rxjs';
 import { map, filter, scan } from 'rxjs/operators';
 
@@ -11,14 +11,15 @@ import { map, filter, scan } from 'rxjs/operators';
 })
 
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit,OnDestroy{
   
   secondes: number;
+  counterSubscription: Subscription;
 
   ngOnInit() {
     const counter = interval(1000);
 
-    counter.subscribe(
+   this.counterSubscription = counter.subscribe(
       (value) => {
         this.secondes = value;
       },
@@ -34,6 +35,10 @@ export class AppComponent implements OnInit{
 
 
 
- 
+  ngOnDestroy() {
+    this.counterSubscription.unsubscribe();
+  }
+
 
 }
+  
