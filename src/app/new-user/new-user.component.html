@@ -5,11 +5,11 @@
       <input type="text" class="form-control" id="firstname" formControlName="firstname">
     </div>
     <div class="form-group">
-        <label for="lastname">Prénom</label>
+        <label for="lastname">Lastname</label>
         <input type="text" class="form-control" id="lastname" formControlName="lastname">
     </div>
     <div class="form-group">
-        <label for="email">Prénom</label>
+        <label for="email">Email</label>
         <input type="text" class="form-control" id="email" formControlName="email">
     </div>
     <div class="form-group">
@@ -19,6 +19,6 @@
         <option value="Pepsi">Pepsi</option>
       </select>
     </div>
-    <button class="btn btn-primary" type="submit">Soumettre</button>
+    <button class="btn btn-primary" type="submit" [disabled]="userForm.invalid">Soumettre</button>
 </form>
 </div>
