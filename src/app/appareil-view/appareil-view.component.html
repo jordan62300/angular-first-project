@@ -23,6 +23,8 @@
         *ngIf="isAuth"
         >Tout allumer</button>
         <button class="btn btn-danger" (click)="onEteindre()" *ngIf="isAuth">Tout eteindre</button>
+        <button class="btn btn-primary" (click)="onSave()">Enregistrer les appareils</button>
+        <button class="btn-warning" (click)="onFetch()">Charger</button>
         </form>
       </div>
     </div>
